@@ -1,0 +1,115 @@
+body {
+    background-color: green;
+}
+
+/********************************/
+/**BARRA DE NAVEGACION DEL CHAT**/
+/********************************/
+
+.chatImg {
+    width: 0;
+    position: relative;
+    float: right;
+    margin-right: 5%;
+    margin-top: 5px;
+}
+
+.menuChat{
+    float: right;
+    margin-right: 20%;
+    position: relative;
+}
+
+
+.sidebarChat {
+    position: fixed;
+    width: 25%;
+    height: 97%;
+    background: orange;
+    font-size: 0.65em;
+    margin-right: 25%;
+}
+
+.tituloChat, .tituloChatRuta{
+    position: relative;
+    text-align: left;
+    text-transform: uppercase;
+    font-weight: bold;
+    color: blue;
+    font-size: 30px;
+    top: 15px;
+    left: 30px;
+}
+
+.imgVolverChat, .imgVolverRutasChat{
+    position: relative;
+    float: right;
+    width: 60px;
+    margin-right: 10px;
+}
+
+.dropdown {
+    position: absolute;
+    width: 200px;
+    height: 250px;
+    background-color: lightblue;
+    display: none;
+}
+
+.navChat {
+    position: relative;
+    text-align: left;
+    font-weight: bold;
+}
+
+.navChat ul {
+    list-style: none;
+    margin-right: 20px;
+    margin-top: 40px;
+    overflow:hidden; 
+    overflow-y:scroll;
+    height: 85vh;
+}
+
+.navChat ul li {
+    position: relative;
+}
+
+.navChat ul li a {
+    line-height: 3em;
+    text-transform: uppercase;
+    text-decoration: none;
+    letter-spacing: 0.4em;
+    color: white;
+    display: block;
+    font-size: 20px;
+}
+
+.navChat ul li:not(.active):hover a {
+    color: black;
+    transition: all ease-out 300ms;
+}
+
+.navChat ul li::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 0.2em;
+    background: black;
+    left: 0;
+    bottom: 0;
+    background-image: linear-gradient(to right, #5e42a6, #b74e91)
+}
+
+.textareaChat {
+    position: absolute;
+    width: 90%;
+    bottom: 10px;
+    left: 5%;
+
+    resize: none;
+    overflow: hidden;
+    min-height: 50px;
+    max-height: 100px;
+}
+  

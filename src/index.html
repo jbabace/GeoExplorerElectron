@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prueba electron</title>
+    <link rel="stylesheet" href="index.css">
+    <script>window.$ = window.jQuery = require('jquery');</script>
+
+</head>
+<body>
+
+    <div tabindex="0" class="chatImg"><img src="../images/chat.png" alt=""></div>
+    <div class="dropdown"></div>
+
+    <div id="Chat" class="menuChat">
+            
+        <div id="rutasChats">
+        <aside class="sidebarChat">
+        <label class="tituloChat">chats geocoder</label>
+        <img class="imgVolverChat" src="../images/flechaVolver.png">
+        <nav class="navChat">
+        <ul>
+           
+            <li><a href="#">Chat 1</a></li>
+            <li><a href="#">Chat 2</a></li>
+            <li><a href="#">Chat 3</a></li>
+            <li><a href="#">Chat 4</a></li>
+            <li><a href="#">Chat 1</a></li>
+            <li><a href="#">Chat 2</a></li>
+            <li><a href="#">Chat 3</a></li>
+            <li><a href="#">Chat 4</a></li>
+            <li><a href="#">Chat 1</a></li>
+            <li><a href="#">Chat 2</a></li>
+            <li><a href="#">Chat 3</a></li>
+            <li><a href="#">Chat 4</a></li>
+            <li><a href="#">Chat 1</a></li>
+            <li><a href="#">Chat 2</a></li>
+            <li><a href="#">Chat 3</a></li>
+            <li><a href="#">Chat 4</a></li>
+            <li><a href="#">Chat 1</a></li>
+            <li><a href="#">Chat 2</a></li>
+            <li><a href="#">Chat 3</a></li>
+            <li><a href="#">Chat 4</a></li>
+
+        </ul>
+        
+        </nav>
+        </aside>
+        </div>
+
+        <div id="chatRuta">
+            <aside class="sidebarChat">
+                <label class="tituloChatRuta">RUTA X</label>
+                <img class="imgVolverRutasChat" src="../images/flechaVolver.png">
+                <textarea class="textareaChat" oninput="auto_grow(this)" placeholder="Escribe a los usuarios de este chat"></textarea>
+            </aside>
+        </div>
+    </div>
+
+    <script>
+        $('#Chat').hide();
+        $('.chatImg, .imgVolverChat').on("click", function(e) {
+            $('#Chat').fadeToggle('fast');
+        });
+
+        $('#chatRuta').hide();
+        $('li').on("click", function(e) {
+            $('#rutasChats').hide();
+            $('#chatRuta').show();
+        });
+        
+        $('.imgVolverRutasChat').on("click", function(e) {
+            $('#rutasChats').show();
+            $('#chatRuta').hide();
+        });
+
+        function auto_grow(element) {
+            element.style.height = "5px";
+            element.style.height = (element.scrollHeight)+"px";
+        }
+
+    </script>
+    
+</body>
+</html>
