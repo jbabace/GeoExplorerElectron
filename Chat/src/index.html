@@ -53,7 +53,9 @@
             <aside class="sidebarChat">
                 <label class="tituloChatRuta">RUTA X</label>
                 <img class="imgVolverRutasChat" src="../images/flechaVolver.png">
+                <div id="contenidoChat"></div>
                 <textarea class="textareaChat" oninput="auto_grow(this)" placeholder="Escribe a los usuarios de este chat"></textarea>
+                <button class="botonChat"><img src="../images/flechaEnviar.png"></button>
             </aside>
         </div>
     </div>
@@ -68,6 +70,8 @@
         $('li').on("click", function(e) {
             $('#rutasChats').hide();
             $('#chatRuta').show();
+            
+            //conectar al socket
         });
         
         $('.imgVolverRutasChat').on("click", function(e) {
@@ -75,10 +79,18 @@
             $('#chatRuta').hide();
         });
 
+        //funcion de autoagrandamiento del text area segun su contenido
         function auto_grow(element) {
             element.style.height = "5px";
             element.style.height = (element.scrollHeight)+"px";
         }
+
+        //no se puede hacer drag a las imagenes
+        $('img').on('dragstart', function(event) { event.preventDefault(); });
+
+        $('.botonChat').on('click', function(e) {
+            console.log("Pulso");
+        });
 
     </script>
     

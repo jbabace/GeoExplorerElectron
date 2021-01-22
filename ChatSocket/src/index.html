@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prueba electron</title>
+    <link rel="stylesheet" href="index.css">
+    <script>window.$ = window.jQuery = require('jquery');</script>
+
+</head>
+<body>
+
+    <div tabindex="0" class="chatImg"><img src="../images/chat.png" alt=""></div>
+    <div class="dropdown"></div>
+
+    <div id="Chat" class="menuChat">
+            
+        <div id="chatRuta">
+            <aside class="sidebarChat">
+                <label class="tituloChatRuta">RUTA X</label>
+                <img class="imgVolverRutasChat" src="../images/flechaVolver.png">
+                <div class="fondoChat">
+                    <div id="contenidoChat">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus ratione temporibus eum sequi at similique facilis nam explicabo. Optio recusandae veritatis perspiciatis, laboriosam itaque molestiae ea dicta accusamus dolorem nihil.</div>
+                </div>
+                <textarea class="textareaChat" oninput="auto_grow(this)" placeholder="Escribe a los usuarios de este chat" onkeypress="botonPulsado();"></textarea>
+                <button class="botonChat"><img src="../images/flechaEnviar.png"></button>
+            </aside>
+        </div>
+    </div>
+
+    <script>
+        
+        //funcion de autoagrandamiento del text area segun su contenido
+        function auto_grow(element) {
+            element.style.height = "5px";
+            element.style.height = (element.scrollHeight)+"px";
+        }
+
+        //no se puede hacer drag a las imagenes
+        $('img').on('dragstart', function(event) { event.preventDefault(); });
+
+        $('.botonChat').on('click', anadirTexto);
+
+        function botonPulsado() {
+
+            if (window.event.keyCode === 13) {
+                anadirTexto();
+                
+                $(".textareaChat").val("");
+                $(".textareaChat").height('5px');
+            }
+        }
+
+        function anadirTexto() {
+            if($('.textareaChat').val() != ""){
+                var content = document.createElement("div");
+
+                //cambiamos
+                var html = $(".textareaChat").val().replace(/(\n|\r|\r\n)/g, '<br>');
+
+                content.innerHTML = html;
+            
+                $('#contenidoChat').append(content).append('<hr>');
+
+                //vaciamos el textarea
+                $(".textareaChat").val("");
+                $(".textareaChat").height('5px');
+            }
+        }
+
+    </script>
+    
+</body>
+</html>
