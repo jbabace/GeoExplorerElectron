@@ -6,6 +6,7 @@
     <title>Prueba electron</title>
     <link rel="stylesheet" href="index.css">
     <script>window.$ = window.jQuery = require('jquery');</script>
+    <script src="./chat.js"></script>
 
 </head>
 <body>
@@ -23,7 +24,7 @@
                     <div id="contenidoChat">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus ratione temporibus eum sequi at similique facilis nam explicabo. Optio recusandae veritatis perspiciatis, laboriosam itaque molestiae ea dicta accusamus dolorem nihil.</div>
                 </div>
                 <textarea class="textareaChat" oninput="auto_grow(this)" placeholder="Escribe a los usuarios de este chat" onkeypress="botonPulsado();"></textarea>
-                <button class="botonChat"><img src="../images/flechaEnviar.png"></button>
+                <button class="botonChat" onclick="anadirTexto()"><img src="../images/flechaEnviar.png"></button>
             </aside>
         </div>
     </div>
@@ -38,35 +39,7 @@
 
         //no se puede hacer drag a las imagenes
         $('img').on('dragstart', function(event) { event.preventDefault(); });
-
-        $('.botonChat').on('click', anadirTexto);
-
-        function botonPulsado() {
-
-            if (window.event.keyCode === 13) {
-                anadirTexto();
-                
-                $(".textareaChat").val("");
-                $(".textareaChat").height('5px');
-            }
-        }
-
-        function anadirTexto() {
-            if($('.textareaChat').val() != ""){
-                var content = document.createElement("div");
-
-                //cambiamos
-                var html = $(".textareaChat").val().replace(/(\n|\r|\r\n)/g, '<br>');
-
-                content.innerHTML = html;
-            
-                $('#contenidoChat').append(content).append('<hr>');
-
-                //vaciamos el textarea
-                $(".textareaChat").val("");
-                $(".textareaChat").height('5px');
-            }
-        }
+        
 
     </script>
     
