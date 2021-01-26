@@ -80,13 +80,16 @@ body {
     height: 84%;
     background-color: aqua;
 
-    overflow-y:hidden;
+    overflow-y: auto;
     
 }
 
 #contenidoChat {
     font-size: medium;
-    
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
   
