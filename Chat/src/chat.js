@@ -58,10 +58,11 @@ function anadirTexto() {
     if(mensaje != ""){
         escribirTextoInterno(mensaje);
         var content = document.createElement("div");
+        content.className = "chatInterno"
 
-        content.innerHTML = mensaje;
+        content.innerHTML = "Yo: " + mensaje;
     
-        $('#contenidoChat').append(content).append('<hr>');
+        $('#contenidoChat').append(content);
 
         //vaciamos el textarea
         $(".textareaChat").val("");
@@ -72,14 +73,15 @@ function anadirTexto() {
 function anadirTextoExterno(json) {
     if(json["value"] != ""){
         var content = document.createElement("div");
+        content.className = "chatExterno"
 
         //cambiamos
         mensaje = json["value"];
-        var html = mensaje.replace(/(\n|\r|\r\n)/g, '<br>');
+        usuario = json["from"];
 
-        content.innerHTML = html;
+        content.innerHTML = usuario + ": " + mensaje;
     
-        $('#contenidoChat').append(content).append('<hr>');
+        $('#contenidoChat').append(content);
     }
 }
 

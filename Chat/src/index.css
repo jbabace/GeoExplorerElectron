@@ -146,3 +146,14 @@ body {
     margin-bottom: 10px;
 }
   
+.chatExterno {
+    background-color: #5e42a6;
+    padding: 1%;
+    margin-bottom: 5px;
+} 
+
+.chatInterno {
+    background-color: chartreuse;
+    padding: 1%;
+    margin-bottom: 5px;
+}
