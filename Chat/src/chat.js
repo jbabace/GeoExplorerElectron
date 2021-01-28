@@ -1,15 +1,29 @@
 var net = require('net');
 var usuario = "Endibra";
-var ruta = "Ruta X";
+var ruta = "";
 
 var client = new net.Socket();
 client.connect(1234, '127.0.0.1', function() {
     console.log('Conectado');
+});
+
+
+function conexion(route) {
+    ruta = route;
     var loginJson = '{ "action": "login", "user":"'+usuario+'", "route":"'+ruta+'"}';
     
     client.write(loginJson);
     client.write("\n");
-});
+}
+
+function desconexion() {
+    
+
+    $(".textareaChat").val("");
+    $(".textareaChat").height('5px');
+    var contenidoChat = document.getElementById("contenidoChat");
+    contenidoChat.innerHTML="";
+}
 
 
 client.on("data", (data) => {
@@ -45,10 +59,7 @@ function anadirTexto() {
         escribirTextoInterno(mensaje);
         var content = document.createElement("div");
 
-        //cambiamos
-        var html = $(".textareaChat").val().replace(/(\n|\r|\r\n)/g, '<br>');
-
-        content.innerHTML = html;
+        content.innerHTML = mensaje;
     
         $('#contenidoChat').append(content).append('<hr>');
 

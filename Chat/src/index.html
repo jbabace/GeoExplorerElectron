@@ -3,9 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Prueba electron</title>
+    <title>Prueba Chat electron</title>
     <link rel="stylesheet" href="index.css">
     <script>window.$ = window.jQuery = require('jquery');</script>
+    <script src="./chat.js"></script>
 
 </head>
 <body>
@@ -22,26 +23,8 @@
         <nav class="navChat">
         <ul>
            
-            <li><a href="#">Chat 1</a></li>
-            <li><a href="#">Chat 2</a></li>
-            <li><a href="#">Chat 3</a></li>
-            <li><a href="#">Chat 4</a></li>
-            <li><a href="#">Chat 1</a></li>
-            <li><a href="#">Chat 2</a></li>
-            <li><a href="#">Chat 3</a></li>
-            <li><a href="#">Chat 4</a></li>
-            <li><a href="#">Chat 1</a></li>
-            <li><a href="#">Chat 2</a></li>
-            <li><a href="#">Chat 3</a></li>
-            <li><a href="#">Chat 4</a></li>
-            <li><a href="#">Chat 1</a></li>
-            <li><a href="#">Chat 2</a></li>
-            <li><a href="#">Chat 3</a></li>
-            <li><a href="#">Chat 4</a></li>
-            <li><a href="#">Chat 1</a></li>
-            <li><a href="#">Chat 2</a></li>
-            <li><a href="#">Chat 3</a></li>
-            <li><a href="#">Chat 4</a></li>
+            <li><a href="#" onclick="conexion('ruta X')">Chat 1</a></li>
+            <li><a href="#" onclick="conexion('ruta Y')">Chat 2</a></li>
 
         </ul>
         
@@ -52,10 +35,12 @@
         <div id="chatRuta">
             <aside class="sidebarChat">
                 <label class="tituloChatRuta">RUTA X</label>
-                <img class="imgVolverRutasChat" src="../images/flechaVolver.png">
-                <div id="contenidoChat"></div>
-                <textarea class="textareaChat" oninput="auto_grow(this)" placeholder="Escribe a los usuarios de este chat"></textarea>
-                <button class="botonChat"><img src="../images/flechaEnviar.png"></button>
+                <img class="imgVolverRutasChat" src="../images/flechaVolver.png" onclick="desconexion()">
+                <div class="fondoChat">
+                    <div id="contenidoChat"></div>
+                </div>
+                <textarea class="textareaChat" oninput="auto_grow(this)" placeholder="Escribe a los usuarios de este chat" onkeypress="botonPulsado();"></textarea>
+                <button class="botonChat" onclick="anadirTexto()"><img src="../images/flechaEnviar.png"></button>
             </aside>
         </div>
     </div>
@@ -88,9 +73,6 @@
         //no se puede hacer drag a las imagenes
         $('img').on('dragstart', function(event) { event.preventDefault(); });
 
-        $('.botonChat').on('click', function(e) {
-            console.log("Pulso");
-        });
 
     </script>
     
