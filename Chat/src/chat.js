@@ -3,7 +3,7 @@ var usuario = "Endibra";
 var ruta = "";
 
 var client = new net.Socket();
-client.connect(1234, '127.0.0.1', function() {
+client.connect(1234, '10.10.12.183', function() {
     console.log('Conectado');
 });
 
